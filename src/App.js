@@ -11,19 +11,19 @@ const testData = [
         company: "Philips",
     },
     {
-        name: "Dan Abramov",
-        avatar_url: "https://avatars0.githubusercontent.com/u/810438?v=4",
-        company: "@facebook",
+        name: "Shiv Yadav",
+        avatar_url: "https://avatars0.githubusercontent.com/u/4556628?s=400&u=3c390f9b120ea323d07ddc56cbe454f1d37bcbcd&v=4",
+        company: "Cisco",
     },
     {
-        name: "Sophie Alpert",
-        avatar_url: "https://avatars2.githubusercontent.com/u/6820?v=4",
-        company: "Humu",
+        name: "Chinmay Dalvi",
+        avatar_url: "https://avatars1.githubusercontent.com/u/14978241?s=400&u=f7d857967e60a7b86e7be406a6603641e698a4ac&v=4",
+        company: "@HereMaps",
     },
     {
-        name: "Sebastian Markbåge",
-        avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4",
-        company: "Facebook",
+        name: "Lydia Hallie",
+        avatar_url: "https://avatars0.githubusercontent.com/u/29451794?s=400&u=47e794ab07401636441a34d4d4cb1bcc1443f6ba&v=4",
+        company: "@LydiaHallie",
     },
 ];
 
