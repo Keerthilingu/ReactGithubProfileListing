@@ -29,7 +29,7 @@ const testData = [
 class CardList extends React.Component {
     render(props) {
         return (
-            <div className="card w-50 mx-auto">
+            <div>
                 <table>
                     <thead>
                         <tr>
@@ -111,9 +111,8 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <h8k-navbar header={this.props.title}></h8k-navbar>
-                <h1>{this.props.title}</h1>
-                <div className="layout-row align-items-center justify-content-center my-20 navigation">
+               <h1>{this.props.title}</h1>
+                <div>
                     <Form onSubmit={this.addNewProfile} />
                 </div>
                 <CardList profiles={this.state.profiles} />
