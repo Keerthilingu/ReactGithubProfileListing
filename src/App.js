@@ -1,103 +1,9 @@
 import React from "react";
 import "./App.css";
 import "./index.css";
-import axios from "axios";
-
-const testData = [
-    {
-        name: "Keerthilingu",
-        avatar_url: "https://avatars0.githubusercontent.com/u/62399797?v=4",
-        company: "Philips",
-    },
-    {
-        name: "Shiv Yadav",
-        avatar_url: "https://avatars0.githubusercontent.com/u/4556628?s=400&u=3c390f9b120ea323d07ddc56cbe454f1d37bcbcd&v=4",
-        company: "Cisco",
-    },
-    {
-        name: "Chinmay Dalvi",
-        avatar_url: "https://avatars1.githubusercontent.com/u/14978241?s=400&u=f7d857967e60a7b86e7be406a6603641e698a4ac&v=4",
-        company: "@HereMaps",
-    },
-    {
-        name: "Lydia Hallie",
-        avatar_url: "https://avatars0.githubusercontent.com/u/29451794?s=400&u=47e794ab07401636441a34d4d4cb1bcc1443f6ba&v=4",
-        company: "@LydiaHallie",
-    },
-];
-
-class CardList extends React.Component {
-    render(props) {
-        return (
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th> Photo</th>
-                            <th>UserInfo</th>
-                        </tr>
-                    </thead>
-                    {this.props.profiles.map((profile) => (
-                        <Card key={profile.avatar_url} profile={profile} />
-                    ))}
-                </table>
-            </div>
-        );
-    }
-}
-
-class Card extends React.Component {
-    render(props) {
-        return (
-            <tbody>
-                <tr>
-                    <td>
-                        <img
-                            src={this.props.profile.avatar_url}
-                            alt=" of Github Users"
-                        />
-                    </td>
-
-                    <td>
-                        <div>{this.props.profile.name}</div>
-                        <div>{this.props.profile.company}</div>
-                    </td>
-                </tr>
-            </tbody>
-        );
-    }
-}
-
-class Form extends React.Component {
-    state = {
-        userName: "",
-    };
-    handleSubmit = async (event) => {
-        event.preventDefault();
-        const resp = await axios.get(
-            `https://api.github.com/users/${this.state.userName}`
-        );
-        this.props.onSubmit(resp.data);
-        this.setState({ userName: "" });
-    };
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="GitHub UserName"
-                    value={this.state.userName}
-                    onChange={(event) =>
-                        this.setState({ userName: event.target.value })
-                    }
-                    required
-                ></input>
-                <button className="small">Add Card</button>
-            </form>
-        );
-    }
-}
-
+import testData from "./Data/data.js";
+import Form  from "./Components/form.js";
+import CardList from "./Components/cardList.js";
 class App extends React.Component {
     state = {
         profiles: testData,
@@ -105,13 +11,13 @@ class App extends React.Component {
 
     addNewProfile = (profile) => {
         this.setState((previousState) => ({
-            profiles: [...previousState.profiles, profile],
+            profiles: [profile, ...previousState.profiles],
         }));
     };
     render() {
         return (
             <div className="App">
-               <h1>{this.props.title}</h1>
+                <h1>{this.props.title}</h1>
                 <div>
                     <Form onSubmit={this.addNewProfile} />
                 </div>
