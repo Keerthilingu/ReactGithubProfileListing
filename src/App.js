@@ -1,5 +1,4 @@
 import React from "react";
-import "h8k-components";
 import "./App.css";
 import "./index.css";
 import axios from "axios";
